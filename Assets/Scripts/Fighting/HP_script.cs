@@ -26,6 +26,11 @@ public class HP_script : MonoBehaviour {
     void Update () {
         if (hp <= 0)
         {
+            Loot_script loot_script = gameObject.GetComponent<Loot_script>();
+            if (loot_script)
+            {
+                loot_script.drop_items();
+            }
             Destroy(gameObject);
         }
 	}
