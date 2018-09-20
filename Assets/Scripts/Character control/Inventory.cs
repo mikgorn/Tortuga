@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Inventory : ScriptableObject {
     public List<Item> items = new List<Item>();
     
@@ -14,7 +15,8 @@ public class Inventory : ScriptableObject {
         }
         else
         {
-            items.Add(item);
+            Item item_copy = (Item)item.Clone();
+            items.Add(item_copy);
         }
     }
 

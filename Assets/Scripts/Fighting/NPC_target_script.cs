@@ -26,7 +26,7 @@ public class NPC_target_script : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != tag && (!collision.isTrigger)&&(no_target))
+        if (collision.gameObject.tag != transform.parent.tag && (!collision.isTrigger)&&(no_target))
         {
             attack_target = true;
             target = collision.transform;
@@ -35,7 +35,7 @@ public class NPC_target_script : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != tag && (!collision.isTrigger) && (no_target))
+        if (collision.gameObject.tag != transform.parent.tag && (!collision.isTrigger) && (no_target))
         {
             attack_target = true;
             target = collision.transform;
@@ -59,7 +59,6 @@ public class NPC_target_script : MonoBehaviour {
         target_a *= 180 / Mathf.PI;
 
         float delta_a = (target_a - a - 90)%360;
-        Debug.Log(delta_a);
         if (delta_a > 180)
         {
             delta_a -= 360;

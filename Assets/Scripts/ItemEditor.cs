@@ -136,7 +136,7 @@ public class ItemEditor : EditorWindow {
         }
         if (GUI.changed)
         {
-            EditorUtility.SetDirty(inventoryItemList);
+           // EditorUtility.SetDirty(inventoryItemList);
         }
     }
 
@@ -175,7 +175,7 @@ public class ItemEditor : EditorWindow {
     {
         Item newItem = new Item();
         newItem.name = "New Item";
-        inventoryItemList.items.Add(newItem);
+        inventoryItemList.add_item(newItem);
         viewIndex = inventoryItemList.items.Count;
     }
 

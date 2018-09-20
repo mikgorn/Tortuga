@@ -25,7 +25,6 @@ public class NPC_cannon_script : MonoBehaviour {
             cb_script.owner = gameObject;
             cannonball.tag = transform.parent.tag;
             left_cd = cd;
-            Debug.Log("shooting");
         }
     }
     // Update is called once per frame
