@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Name: inventory1
   m_EditorClassIdentifier: 
   items:
-  - name: New Item
+  - name: Salt
     image: {fileID: 0}
-    amount: 1
+    amount: 5
+    buy_price: 0
+    sell_price: 0

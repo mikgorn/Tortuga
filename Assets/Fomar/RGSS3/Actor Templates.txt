@@ -1,0 +1,115 @@
+=begin
+Actor Templates
+by Fomar0153
+Version 1.0
+----------------------
+Notes
+----------------------
+Allows you to use an actor in the database as a template for many actors.
+----------------------
+Instructions
+----------------------
+You can reserve as many actors as you want in the database by
+setting: UNIQUE_ACTORS to the number of actors who you want to 
+preserve for regular use.
+
+To make a new actor call:
+$game_actors.new_actor(actor_id)
+where actor_id is the id of the actor in the database you want 
+to use as a template. By default it will add this actor to 
+the party. If you don't want it to use:
+$game_actors.new_actor(actor_id, false)
+
+When you create an actor with new_actor it will return
+the actor so if you need to do anything with said actor you can
+e.g. store their id in a variable:
+actor = $game_actors.new_actor(actor_id, false)
+$game_variables[x] = actor.id
+----------------------
+Known bugs
+----------------------
+None
+=end
+
+module Fomar
+  
+  UNIQUE_ACTORS = 3
+  
+end
+
+class Game_Actors
+  #--------------------------------------------------------------------------
+  # * Object Initialization
+  #--------------------------------------------------------------------------
+  alias actor_bases_initialize initialize
+  def initialize
+    actor_bases_initialize
+    @next_index = Fomar::UNIQUE_ACTORS + 1
+  end
+  #--------------------------------------------------------------------------
+  # * Get Actor
+  #--------------------------------------------------------------------------
+  def [](actor_id)
+    if actor_id <= Fomar::UNIQUE_ACTORS
+      return nil unless $data_actors[actor_id]
+      return @data[actor_id] ||= Game_Actor.new(actor_id)
+    else
+      return nil unless @data[actor_id]
+      return @data[actor_id]
+    end
+  end
+  #--------------------------------------------------------------------------
+  # * Make New Actor
+  #--------------------------------------------------------------------------
+  def new_actor(actor_id, add_to_party = true)
+    @data[@next_index] = Game_Actor.new(actor_id)
+    $game_party.add_actor(@next_index) if add_to_party
+    @next_index += 1
+    return @data[@next_index-1]
+  end
+  #--------------------------------------------------------------------------
+  # * Get index
+  #--------------------------------------------------------------------------
+  def get_index(actor)
+    return @data.index(actor)
+  end
+end
+
+class Game_Party < Game_Unit
+  #--------------------------------------------------------------------------
+  # * Get Actor Selected on Menu Screen
+  #--------------------------------------------------------------------------
+  def menu_actor
+    members[@menu_actor_id] || members[0]
+  end
+  #--------------------------------------------------------------------------
+  # * Set Actor Selected on Menu Screen
+  #--------------------------------------------------------------------------
+  def menu_actor=(actor)
+    @menu_actor_id = actor.index
+  end
+  #--------------------------------------------------------------------------
+  # * Select Next Actor on Menu Screen
+  #--------------------------------------------------------------------------
+  def menu_actor_next
+    @menu_actor_id = (@menu_actor_id + 1) % members.size
+    return self.menu_actor
+  end
+  #--------------------------------------------------------------------------
+  # * Select Previous Actor on Menu Screen
+  #--------------------------------------------------------------------------
+  def menu_actor_prev
+    @menu_actor_id = (@menu_actor_id - 1) % members.size
+    return self.menu_actor
+  end
+end
+
+class Game_Actor < Game_Battler
+  #--------------------------------------------------------------------------
+  # * Get Actor ID
+  #--------------------------------------------------------------------------
+  def id
+    $game_actors.get_index(self)
+  end
+end
+

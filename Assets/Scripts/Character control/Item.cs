@@ -7,6 +7,8 @@ public class Item  {
     public string name;
     public Sprite image;
     public int amount;
+    public int buy_price;
+    public int sell_price;
 	
     public Item Clone()
     {

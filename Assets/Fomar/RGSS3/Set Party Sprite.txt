@@ -1,0 +1,43 @@
+=begin
+Set Party Sprite
+by Fomar0153
+Version 1.0
+----------------------
+Notes
+----------------------
+Allows you to set the party's sprite regardless of formation and
+even if the actor is even in the party.
+----------------------
+Instructions
+----------------------
+To set an actor call:
+$game_player.actor_id = id
+$game_player.refresh
+
+where id is the id of the actor whose sprite you want to use.
+----------------------
+Known bugs
+----------------------
+None
+=end
+
+class Game_Player < Game_Character
+  #--------------------------------------------------------------------------
+  # * Public Instance Variables
+  #--------------------------------------------------------------------------
+  attr_accessor :actor_id
+  #--------------------------------------------------------------------------
+  # * Object Initialization
+  #--------------------------------------------------------------------------
+  alias lock_actor_initialize initialize
+  def initialize
+    lock_actor_initialize
+    @actor_id = 0
+  end
+  #--------------------------------------------------------------------------
+  # * Get Corresponding Actor
+  #--------------------------------------------------------------------------
+  def actor
+    $game_actors[@actor_id]
+  end
+end

@@ -1,0 +1,31 @@
+-- Artist Name: 
+---------------------------------------------------------
+Archeia
+Scinaya
+Thalzon
+
+-- Terms of Use:
+---------------------------------------------------------
+Commercial and Non-Commercial Use. 
+Artists must be credited.
+
+-- Contact Info:
+---------------------------------------------------------
+
+-- Archeia
+----------------------
+Website: http://archeia.moe
+RPG Maker Web Profile: https://forums.rpgmakerweb.com/index.php?members/archeia.11/
+RMN Profile: https://rpgmaker.net/users/Archeia_Nessiah/
+
+-- Scinaya
+----------------------
+RPG Maker Web Profile: https://forums.rpgmakerweb.com/index.php?members/scinaya.25/
+
+-- Thalzon
+----------------------
+RPG Maker Web Profile: https://forums.rpgmakerweb.com/index.php?members/thalzon.26/
+
+-- Details:
+---------------------------------------------------------
+Based on Thalzon's Battlers.

@@ -15,3 +15,5 @@ MonoBehaviour:
   - name: item 1
     image: {fileID: 0}
     amount: 2
+    buy_price: 1
+    sell_price: 2
