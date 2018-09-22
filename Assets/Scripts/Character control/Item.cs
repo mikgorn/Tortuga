@@ -9,6 +9,7 @@ public class Item  {
     public int amount;
     public int buy_price;
     public int sell_price;
+    public float drop_chance;
 	
     public Item Clone()
     {
@@ -17,6 +18,7 @@ public class Item  {
         clone.name = name;
         clone.image = image;
         clone.amount = amount;
+        clone.drop_chance = drop_chance;
 
         return clone;
     }

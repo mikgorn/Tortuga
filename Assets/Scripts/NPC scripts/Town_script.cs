@@ -127,6 +127,7 @@ public class Town_script : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        player_inventory = player_inventory_script.inventory;
         if (collision.gameObject.tag == "Player")
         {
             panel.SetActive(true);
@@ -188,11 +189,10 @@ public class Town_script : MonoBehaviour {
         foreach (Item item in inventory.items)
         {
             GameObject item_gameobject = Instantiate(item_prefab);
-            item_gameobject.transform.SetParent(inventory_panel.transform, false);
+            item_gameobject.transform.SetParent(inventory_panel.transform.GetChild(0).GetChild(0).GetChild(0), false);
             item_gameobject.transform.position += new Vector3(0, shift, 0);
             item_gameobject.transform.GetChild(0).GetComponent<Text>().text = item.name;
-
-
+            
             int i = player_inventory.items.FindIndex(x=>x.name == item.name);
             int k = 0;
 

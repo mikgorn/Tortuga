@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68ab72cba8c5654c8a8916ed963fac2, type: 3}
+  m_Name: Standard_city_inventory
+  m_EditorClassIdentifier: 
+  items:
+  - name: Fish
+    image: {fileID: 21300000, guid: 796b9d93740cdc847abb213ab9462be0, type: 3}
+    amount: 10
+    buy_price: 10
+    sell_price: 10
+    drop_chance: 0.9
+  - name: Dye
+    image: {fileID: 21300000, guid: ad334113dde74de4f95d971a22f9a61d, type: 3}
+    amount: 1
+    buy_price: 150
+    sell_price: 150
+    drop_chance: 0
+  - name: Spices
+    image: {fileID: 21300000, guid: 40729c4c20a17614d936ef6f6827e549, type: 3}
+    amount: 1
+    buy_price: 300
+    sell_price: 300
+    drop_chance: 0
+  - name: Ring
+    image: {fileID: 21300000, guid: 2f39ac001bc858343a15827e8ee3f9cd, type: 3}
+    amount: 1
+    buy_price: 200
+    sell_price: 200
+    drop_chance: 0
+  - name: Neclace
+    image: {fileID: 21300000, guid: 90213b0789cddc546b46fd7a3aa7de03, type: 3}
+    amount: 1
+    buy_price: 250
+    sell_price: 250
+    drop_chance: 0
+  - name: Sword
+    image: {fileID: 21300000, guid: 0074316ef904838469b011c88aae90d1, type: 3}
+    amount: 1
+    buy_price: 100
+    sell_price: 100
+    drop_chance: 0
+  - name: Shield
+    image: {fileID: 21300000, guid: 7d5183a80191d5042935ab5210e1a877, type: 3}
+    amount: 1
+    buy_price: 100
+    sell_price: 100
+    drop_chance: 0
+  - name: Helmet
+    image: {fileID: 21300000, guid: d2e89f08e074bda49a18dffe2ec2e816, type: 3}
+    amount: 1
+    buy_price: 100
+    sell_price: 100
+    drop_chance: 0
+  - name: Copper ingot
+    image: {fileID: 21300000, guid: 07f133ffe978e2944a8b47553ce334d6, type: 3}
+    amount: 1
+    buy_price: 40
+    sell_price: 40
+    drop_chance: 0
+  - name: Iron ingot
+    image: {fileID: 21300000, guid: 75a01e069a476364498e1a948e8f80fd, type: 3}
+    amount: 1
+    buy_price: 80
+    sell_price: 80
+    drop_chance: 0
+  - name: Gold ingot
+    image: {fileID: 21300000, guid: 5cba4b3d923a3704f9bd35bf5e3b0169, type: 3}
+    amount: 1
+    buy_price: 300
+    sell_price: 300
+    drop_chance: 0
+  - name: Platinum ingot
+    image: {fileID: 21300000, guid: 3e78514a6754bdd429496800c97ec4bb, type: 3}
+    amount: 1
+    buy_price: 500
+    sell_price: 500
+    drop_chance: 0
+  - name: Emerald
+    image: {fileID: 21300000, guid: c947f4477a8d80e4886d99687d4c7c48, type: 3}
+    amount: 1
+    buy_price: 400
+    sell_price: 400
+    drop_chance: 0
+  - name: Ruby
+    image: {fileID: 21300000, guid: 18bfb5bd9d94f9d4680251429cf80416, type: 3}
+    amount: 1
+    buy_price: 600
+    sell_price: 600
+    drop_chance: 0
+  - name: Saphire
+    image: {fileID: 21300000, guid: f80719b60c81dd341bb49cfbe281bb3b, type: 3}
+    amount: 1
+    buy_price: 800
+    sell_price: 800
+    drop_chance: 0
+  - name: Diamond
+    image: {fileID: 21300000, guid: f9255b8e113a1e245b05346bdff2fd8b, type: 3}
+    amount: 1
+    buy_price: 1000
+    sell_price: 1000
+    drop_chance: 0
+  - name: Promissory note
+    image: {fileID: 21300000, guid: 6e0f8fe70dd618140b9a0a64d410cf95, type: 3}
+    amount: 1
+    buy_price: 1000
+    sell_price: 1000
+    drop_chance: 0
+  - name: Pearl
+    image: {fileID: 21300000, guid: 6ad19f96c9e9f774080dfadbdb74e3cd, type: 3}
+    amount: 1
+    buy_price: 100
+    sell_price: 100
+    drop_chance: 0

@@ -23,7 +23,7 @@ public class Inventory : ScriptableObject {
     public void remove_item(Item item)
     {
         int i = items.FindIndex(x => x.name == item.name);
-       
+        Debug.Log("removing item "+i);
             items[i].amount -= item.amount;
         if (items[i].amount <= 0)
         {

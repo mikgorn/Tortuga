@@ -16,7 +16,7 @@ public class Inventory_script : MonoBehaviour {
         gold_label.text = "Gold: " + gold;
         if (inventory == null)
         {
-            inventory = new Inventory();
+            inventory = ScriptableObject.CreateInstance<Inventory>();
         }
     }
 
@@ -34,7 +34,7 @@ public class Inventory_script : MonoBehaviour {
         foreach(Item item in inventory.items)
         {
             GameObject item_gameobject = Instantiate(item_prefab);
-            item_gameobject.transform.SetParent(inventory_panel.transform, false);
+            item_gameobject.transform.SetParent(inventory_panel.transform.GetChild(0).GetChild(0).GetChild(0), false);
             item_gameobject.transform.position +=new Vector3(0,shift,0);
             item_gameobject.transform.GetChild(0).GetComponent<Text>().text = item.name;
             item_gameobject.transform.GetChild(1).GetComponent<Text>().text = item.amount.ToString();

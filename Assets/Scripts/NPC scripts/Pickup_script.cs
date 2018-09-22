@@ -15,7 +15,7 @@ public class Pickup_script : MonoBehaviour {
 	void Start () {
         if (inventory == null)
         {
-            inventory = new Inventory();
+            inventory = ScriptableObject.CreateInstance<Inventory>();
         }
         canvas = GameObject.FindObjectOfType<Canvas>();
         panel = Instantiate(panel_prefab);

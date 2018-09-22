@@ -6,7 +6,7 @@ public class NPC_target_script : MonoBehaviour {
     public Transform target = null;
     public bool attack_target = false;
     public bool no_target = true;
-    public float cd_aggr = 10;
+    public float cd_aggr = 2;
     public float aggr_radius = 7.5f;
     public float speed = 50f;
     public float angular_speed = 30;
@@ -24,9 +24,21 @@ public class NPC_target_script : MonoBehaviour {
         ship = gameObject.GetComponent<Rigidbody2D>();
         route_script = route.GetComponent<Route_script>();
 	}
+    private bool is_enemy(string enemy_tag)
+    {
+        if (transform.tag == "pirate")
+        {
+            return transform.tag != enemy_tag;
+        }
+        else
+        {
+            return enemy_tag == "pirate";
+        }
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != transform.tag && (!collision.isTrigger)&&(no_target))
+        if ( is_enemy(collision.gameObject.tag) && (!collision.isTrigger)&&(no_target))
         {
             attack_target = true;
             target = collision.transform;
@@ -35,7 +47,7 @@ public class NPC_target_script : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != transform.tag && (!collision.isTrigger) && (no_target))
+        if (is_enemy(collision.gameObject.tag) && (!collision.isTrigger) && (no_target))
         {
             attack_target = true;
             target = collision.transform;
@@ -75,7 +87,7 @@ public class NPC_target_script : MonoBehaviour {
         {
             transform.Rotate(new Vector3(0, 0, +Time.deltaTime * angular_speed));
         }
-        if (distance.magnitude > 1 )
+        if (distance.magnitude > 3 )
         { ship.velocity = (new Vector3(x * speed / 100, y * speed / 100, 0)); }
         else
         {
@@ -89,9 +101,17 @@ public class NPC_target_script : MonoBehaviour {
     void Update () {
         if (!no_target)
         {
-            if(attack_target && (target.position - transform.position).magnitude > aggr_radius)
+            try
             {
-                cd_aggr -= Time.deltaTime;
+                if (attack_target && (target.position - transform.position).magnitude > aggr_radius)
+                {
+                    cd_aggr -= Time.deltaTime;
+                }
+            }
+            catch
+            {
+                target = null;
+                no_target = true;
             }
 
             destination = target.position;
@@ -99,7 +119,7 @@ public class NPC_target_script : MonoBehaviour {
 
             
 
-            if (attack_target)
+            if (attack_target==true && (!no_target))
             {
                 foreach(NPC_cannon_script cannon in cannons)
                 {

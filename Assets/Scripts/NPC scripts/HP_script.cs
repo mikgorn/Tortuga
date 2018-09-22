@@ -9,6 +9,7 @@ public class HP_script : MonoBehaviour {
     public GameObject hp_bar;
     public int hull_type = 1;
     public Sprite hull_sprite_2;
+    public bool npc = true;
     private SpriteRenderer hull_sprite;
     private Image hp_bar_body;
     private RectTransform hp_body_rect;
@@ -16,6 +17,7 @@ public class HP_script : MonoBehaviour {
     private Text hp_label;
     private RectTransform hp_label_rect;
     private int max_width;
+    private Spawner_script spawner;
 	// Use this for initialization
 	void Start () {
         hull_sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -28,6 +30,10 @@ public class HP_script : MonoBehaviour {
             hp_label_rect = hp_bar.transform.GetChild(4).GetComponent<RectTransform>();
             hp_label.text = hp.ToString();
             
+        }
+        if (npc)
+        {
+            spawner = transform.parent.GetComponent<Spawner_script>();
         }
 	}
 	public void upgrade_hull_type()
@@ -67,8 +73,9 @@ public class HP_script : MonoBehaviour {
             Loot_script loot_script = gameObject.GetComponent<Loot_script>();
             if (loot_script)
             {
-                loot_script.drop_items();
+                //loot_script.drop_items();
             }
+            spawner.destroy_ship();
             Destroy(gameObject);
         }
 	}
